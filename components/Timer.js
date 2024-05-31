@@ -5,7 +5,7 @@ import TimerButton from './TimerButton';
 
 export default class Timer extends React.Component {
     render() {
-        const {title, project, elapsed} = this.props;
+        const {title, project, elapsed, onEditPress} = this.props;
         const elapsedString = millisecondsToHuman(elapsed);
         return (
             <View style={styles.timerContainer}>
@@ -13,7 +13,7 @@ export default class Timer extends React.Component {
                 <Text>{project}</Text>
                 <Text style={styles.elapsedTime}>{elapsedString}</Text>
                 <View style={styles.buttonGroup}>
-                    <TimerButton color="blue" small title="Edit" />
+                    <TimerButton color="blue" small title="Edit" onPress={onEditPress} />
                     <TimerButton color="blue" small title="Remove" />
                 </View>
                 <TimerButton color="#21ba45" title="Start" />
